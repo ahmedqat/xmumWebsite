@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use App\Models\Document;
+use Illuminate\Validation\Rule as ValidationRule;
 use Illuminate\Http\Request;
 
 class DocumentController extends Controller
@@ -24,10 +25,10 @@ class DocumentController extends Controller
 
         $formFields = $request->validate([
 
-            'title' => 'required',
+            'title' => ['required',ValidationRule::unique('documents','title')],
             'department_id' => 'required',
             'description' => 'required',
-            'path' => 'required',
+            'path' => ['required',ValidationRule::unique('documents','path')],
 
         ]);
 
@@ -53,4 +54,7 @@ class DocumentController extends Controller
         return redirect()->back();
 
     }
+
+
+
 }

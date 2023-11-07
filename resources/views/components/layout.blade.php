@@ -18,6 +18,8 @@
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.js"></script>
 
 
+
+
     <link rel="stylesheet" href="{{ asset('assets/styles/main_page.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/styles/plugins.bundle.css') }}" type="text/css" />
 

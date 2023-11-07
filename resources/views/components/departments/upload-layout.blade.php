@@ -1,19 +1,12 @@
-{{-- <div class="content-body-search">
-    <!-- Search File -->
-    <div class="content-search">
-        <img class="btn-icon" src="{{ asset('assets/icons/search.png') }}">
-    </div>
-    <!-- Upload Button -->
-    <div class="content-upload">
-        <div class="upload-btn-container">
-            <a href="" class="btn btn-upload" data-bs-toggle="modal" data-bs-target="#modal_upload">
-                <img class="btn-icon" src="{{ asset('assets/icons/add.png') }}">
-                Upload
-            </a>
-        </div>
-    </div>
-</div> --}}
+{{-- @vite(['resources/js/modal-validation.js']) --}}
 
+
+@if(session()->has('error'))
+    <script>
+            var myModal = new bootstrap.Modal(document.getElementById('modal_upload'));
+            myModal.show();
+        </script>
+@endif
 
 
 <div class="content-body">
@@ -41,7 +34,7 @@
                 </div>
                 <div class="modal-body">
                     <form method="POST" id="modal_upload_form" class="form" action="{{ route('documents.upload') }}"
-                        enctype="multipart/form-data">
+                        enctype="multipart/form-data" >
                         @csrf
                         <div class="d-flex flex-column scroll-y me-n7 pe-7 mb-3">
                             <div class="upload-information-container d-flex flex-column">
@@ -53,7 +46,7 @@
                                     <input type="text" class="form-control" id="upload_name" name="title">
                                     @error('title')
 
-                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    <p class="text-danger text-xs mt-1">{{ $message }}</p>
                                     @enderror
                                 </div>
 
@@ -73,7 +66,7 @@
 
                                     @error('department_id')
 
-                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    <p class="text-danger text-xs mt-1">{{ $message }}</p>
                                     @enderror
                                 </div>
 
@@ -84,7 +77,7 @@
                                         name="description"></textarea>
                                     @error('description')
 
-                                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                    <p class="text-danger text-xs mt-1">{{ $message }}</p>
                                     @enderror
                                 </div>
                             </div>
@@ -95,19 +88,20 @@
                                 <input class="form-control " type="file" id="input_upload_file" name="path">
 
                                 @error('path')
-                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                <p class="text-danger text-xs mt-1">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
 
                         <div class="text-center mt-4 modal-action">
-                            <button type="reset" class="btn btn-discard me-3"
-                                data-users-modal-action="cancel">Discard</button>
-                            {{-- <button type="submit" class="btn btn-submit" data-users-modal-action="submit">
+                            <button type="reset" class="btn btn-discard me-3" data-bs-dismiss="modal">Discard</button>
+
+
+                            {{-- <button type="submit" class="btn btn-primary" data-users-modal-action="submit">
                                 <span class="indicator-label">Submit</span>
                             </button> --}}
 
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
 
                         </div>
                     </form>
