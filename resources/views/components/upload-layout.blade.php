@@ -1,3 +1,5 @@
+{{-- @vite(['resources/js/file.js']) --}}
+
 <div class="content-body">
     <div class="content-body-search">
         <!-- Search File -->
@@ -33,7 +35,7 @@
                                 <div class="row mb-4 mx-0 fv-row">
                                     <label class="required upload-description-title">File Name</label>
                                     <input type="text" class="form-control" id="upload_name" name="title"
-                                    value="{{ old('title') }}">
+                                        value="{{ old('title') }}">
                                     @error('title')
 
                                     <p class="text-danger text-xs mt-1">{{ $message }}</p>
@@ -50,7 +52,8 @@
                                         @foreach ($departments as $department )
 
                                         {{-- <option value="{{ $department->id }}">{{ $department->name }}</option> --}}
-                                        <option value="{{ $department->id }}" @if(old('department_id') == $department->id) selected @endif>{{ $department->name }}</option>
+                                        <option value="{{ $department->id }}" @if(old('department_id')==$department->id)
+                                            selected @endif>{{ $department->name }}</option>
                                         @endforeach
 
 

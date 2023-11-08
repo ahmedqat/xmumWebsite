@@ -17,25 +17,12 @@
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.js"></script>
 
-
-
+    {{-- @vite(['resources/js/file.js'])
+    @vite(['resources/js/plugins.bundle.js'])
+    @vite(['resources/js/scripts.bundle.js']) --}}
 
     <link rel="stylesheet" href="{{ asset('assets/styles/main_page.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/styles/plugins.bundle.css') }}" type="text/css" />
-
-
-
-    {{-- Adding Datatables for Table and Pagination --}}
-
-
-
-
-
-
-
-
-
-
 </head>
 
 <body>
@@ -82,7 +69,6 @@
             <x-sidemenu />
 
 
-
             {{-- Main Content --}}
 
             <main>
@@ -98,9 +84,9 @@
 
 
 
-    <script src="{{ asset('assets/script/plugins.bundle.js') }}"></script>
+    {{-- <script src="{{ asset('assets/script/plugins.bundle.js') }}"></script>
     <script src="{{ asset('assets/script/scripts.bundle.js') }}"></script>
-    <script src="{{ asset('assets/script/file.js') }}"></script>
+    <script src="{{ asset('assets/script/file.js') }}"></script> --}}
 
 
     <!-- <script src="assets/dist/popper/popper.min.js"></script> -->

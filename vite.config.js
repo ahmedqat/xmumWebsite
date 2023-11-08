@@ -21,7 +21,11 @@ export default defineConfig({
         laravel([
             'resources/css/app.css',
             'resources/js/app.js',
-            'resources/js/modal-validation.js'
+            'resources/js/modal-validation.js',
+            'resources/js/file.js',
+            'resources/js/plugins.bundle.js',
+            'resources/js/scripts.bundle.js',
+
         ]),
         // react(),
         // vue({
