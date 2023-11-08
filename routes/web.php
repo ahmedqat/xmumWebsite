@@ -61,3 +61,15 @@ Route::get('/departments/{department}/documents',[DocumentController::class, 'sh
 //Upload Documents
 
 Route::post('/departments',[DocumentController::class,'upload']) ->name('documents.upload');
+
+
+//Edit Document
+
+Route::put('/documents/{document}',[DocumentController::class,'update']) ->name('documents.update');
+
+
+//Delete Document
+
+Route::delete('/documents/{document}',[DocumentController::class,'delete'])->name('documents.delete');
+
+

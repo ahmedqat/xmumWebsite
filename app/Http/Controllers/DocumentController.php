@@ -21,7 +21,7 @@ class DocumentController extends Controller
 
     public function upload(Department $department, Request $request){
 
-        //dd($department);
+
 
         $formFields = $request->validate([
 
@@ -33,7 +33,7 @@ class DocumentController extends Controller
         ]);
 
 
-        // $formFields['path'] = $request->file('path')->store('docs','public');
+
 
 
         //Append with original file name
@@ -58,6 +58,51 @@ class DocumentController extends Controller
 
 
         return redirect()->back();
+
+    }
+
+
+    public function update(Request $request, Document $document){
+
+        //dd($request->all());
+
+        $formFields = $request->validate([
+
+            'title' => 'required',
+            'department_id' => 'required',
+            'description' => 'required',
+
+        ]);
+
+
+        if ($request->hasFile('path')) {
+            $file = $request->file('path');
+            $originalFileName = $file->getClientOriginalName();
+            $newFileName = uniqid() . '.' . $file->getClientOriginalExtension();
+            $formFields['path'] = $file->storeAs('docs', $newFileName, 'public');
+            $formFields['file_name'] = $originalFileName;
+        }
+
+
+        $document->fill($formFields);
+
+        $document->save();
+
+        // $document->update($formFields);
+
+
+        return redirect()->back();
+
+    }
+
+
+    public function delete(Document $document){
+
+
+        $document->delete();
+
+        return redirect()->back();
+
 
     }
 

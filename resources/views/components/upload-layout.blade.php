@@ -16,6 +16,9 @@
             </div>
         </div>
     </div>
+
+    {{-- Modal Start --}}
+
     <div class="modal fade" id="modal_upload" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-width">
             <div class="modal-content">
@@ -105,6 +108,8 @@
             </div>
         </div>
     </div>
+
+    {{-- Modal End --}}
 </div>
 
 

@@ -1,41 +1,70 @@
 <x-layout>
-<x-upload-layout/>
+    <x-upload-layout />
 
 
-{{-- Table goes here --}}
+    {{-- Table goes here --}}
 
-<div class="content-body-table">
-    <div class="body-table-title">
-        Documents for {{ $department->name }}
-    </div>
-    <table class="table table-striped table-hover"  id="documentTable">
-        <thead>
-            <tr>
-                <th class="column-width-20">Name</th>
-                <th>Description</th>
-                <th>Department</th>
-                <th>File</th>
-                {{-- <th class="text-center column-width-5">
-                    <img class="btn-icon-more" src="{{ asset('assets/icons/more.png') }}">
-                </th> --}}
-            </tr>
-        </thead>
-        <tbody>
+    <div class="content-body-table">
+        <div class="body-table-title">
+            Documents for {{ $department->name }}
+        </div>
+        <table class="table table-striped table-hover" id="documentTable">
+            <thead>
+                <tr>
+                    <th class="column-width-20">Name</th>
+                    <th>Description</th>
+                    <th>Department</th>
+                    <th>File</th>
+                    <th class="text-center column-width-5">
+                        <img class="btn-icon-more" src="{{ asset('assets/icons/more.png') }}">
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
 
-            @if (count($documents) == 0)
+                @if (count($documents) == 0)
 
-            <tr>
-             <td>  <p>No Documents Uploaded</p> </td>
-             <td>  <p>No Documents Uploaded</p> </td>
-             <td>  <p>No Documents Uploaded</p> </td>
-             <td>  <p>No Documents Uploaded</p> </td>
-            </tr>
+                <tr>
+                    <td>
+                        <p>No Documents Uploaded</p>
+                    </td>
+                    <td>
+                        <p>No Documents Uploaded</p>
+                    </td>
+                    <td>
+                        <p>No Documents Uploaded</p>
+                    </td>
+                    <td>
+                        <p>No Documents Uploaded</p>
+                    </td>
+                    <td>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <ul class="content-dropdown-list list-unstyled">
+                                <li>
+                                    <a href="#" class="btn btn-danger text-light">
+                                        <img class="dropdown-list-btn-icon"
+                                            src="{{ asset('assets/icons/delete.png') }}">
+                                        <span>Delete</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img class="dropdown-list-btn-icon"
+                                            src="{{ asset('assets/icons/pencil.png') }}">
+                                        <span>Edit</span>
+                                    </a>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
 
 
-            @endif
+                @endif
 
 
-            @foreach ($documents as $document)
+                @foreach ($documents as $document)
                 <tr>
                     <td>{{ $document->title }}</td>
                     <td>{{ $document->description }}</td>
@@ -48,22 +77,56 @@
 
 
                     </td>
+
+                    <td>
+                        <div class="dropdown text-center">
+                            <a href class="dropdown-toggle btn btn-more" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img class="btn-icon-more" src="{{ asset('assets/icons/more.png') }}">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <ul class="content-dropdown-list list-unstyled">
+                                    <li>
+                                        <a href="#" class="btn btn-danger text-light" data-bs-toggle="modal"
+                                            data-bs-target="#modal_delete_{{ $document->id }}">
+                                            <img class="dropdown-list-btn-icon"
+                                                src="{{ asset('assets/icons/delete.png') }}">
+                                            <span>Delete</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-bs-toggle="modal"
+                                            data-bs-target="#modal_edit_{{ $document->id }}">
+                                            <img class="dropdown-list-btn-icon"
+                                                src="{{ asset('assets/icons/pencil.png') }}">
+                                            <span>Edit</span>
+                                        </a>
+
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+                <x-edit :document="$document" :modalId=" 'modal_edit_' . $document->id" />
+                <x-delete :document="$document" :modalId=" 'modal_delete_' .$document->id " />
+                @endforeach
+            </tbody>
+        </table>
 
 
 
-    {{-- <div class="mt-6 p-4">
-        {{ $documents->links('vendor.pagination.bootstrap-5') }}
-    </div> --}}
-    <script>
 
-        $('#documentTable').DataTable({
+
+        {{-- <div class="mt-6 p-4">
+            {{ $documents->links('vendor.pagination.bootstrap-5') }}
+        </div> --}}
+        <script>
+            $('#documentTable').DataTable({
             "pageLength":10
         });
-    </script>
+        </script>
 
 
 
