@@ -231,7 +231,7 @@
 
     {{-- <x-sidemenu :departments="$departments"/> --}}
 
-    <x-departments.upload-layout/>
+    <x-upload-layout/>
 
 
 

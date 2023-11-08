@@ -1,5 +1,5 @@
 <x-layout>
-<x-departments.upload-layout/>
+<x-upload-layout/>
 
 
 {{-- Table goes here --}}

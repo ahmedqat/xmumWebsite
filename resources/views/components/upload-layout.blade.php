@@ -1,12 +1,12 @@
 {{-- @vite(['resources/js/modal-validation.js']) --}}
 
 
-@if(session()->has('error'))
+{{-- @if(session()->has('error'))
     <script>
             var myModal = new bootstrap.Modal(document.getElementById('modal_upload'));
             myModal.show();
         </script>
-@endif
+@endif --}}
 
 
 <div class="content-body">
