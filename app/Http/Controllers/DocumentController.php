@@ -47,6 +47,12 @@ class DocumentController extends Controller
 
         $formFields['file_name'] = $originalFileName;
 
+
+
+
+
+
+
         Document::create($formFields);
 
 
