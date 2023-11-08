@@ -119,9 +119,7 @@
 
 
 
-        {{-- <div class="mt-6 p-4">
-            {{ $documents->links('vendor.pagination.bootstrap-5') }}
-        </div> --}}
+
         <script>
             $('#documentTable').DataTable({
             "pageLength":10

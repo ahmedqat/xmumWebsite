@@ -19,6 +19,9 @@ class DocumentController extends Controller
         return view('departments.index',compact('documents','department'));
     }
 
+
+    //Upload a new Document
+
     public function upload(Department $department, Request $request){
 
 
@@ -62,6 +65,9 @@ class DocumentController extends Controller
     }
 
 
+
+    //Update document info
+
     public function update(Request $request, Document $document){
 
         //dd($request->all());
@@ -95,6 +101,9 @@ class DocumentController extends Controller
 
     }
 
+
+
+    //Delete Document
 
     public function delete(Document $document){
 
