@@ -76,94 +76,8 @@
     <!-- Body Content -->
     <div class="container-fluid container-fluid-wrap">
         <div class="content-container">
-            {{--
-            <!-- Side Menu -->
-            <div class="side-menu-container">
-                <div class="side-menu">
-                    <!-- Side Menu Top -->
-                    <div class="side-menu-top">
-                        <div class="side-menu-title">
-                            Department
-                        </div>
-                        <ul class="side-menu-content">
-                            <li class="@if (Route::currentRouteName() == 'department.library')
-                                    active
-                                @endif">
-                                <a class="side-menu-item side-menu-item-text"
-                                    href="{{ route('department.library') }}">Library</a>
-                            </li>
-                            <li class="@if (Route::currentRouteName() == 'department.it')
-                                    active
-                                @endif">
-                                <a class="side-menu-item side-menu-item-text" href="{{ route('department.it') }}">IT
-                                    Department</a>
-                            </li>
-                            <li class="@if (Route::currentRouteName() == 'department.admin')
-                                    active
-                                @endif">
-                                <a class="side-menu-item side-menu-item-text"
-                                    href="{{ route('department.admin') }}">Admin Department</a>
-                            </li>
-                            <li class="@if (Route::currentRouteName() == 'department.finance')
-                                    active
-                                @endif">
-                                <a class="side-menu-item side-menu-item-text"
-                                    href="{{ route('department.finance') }}">Finance Department</a>
-                            </li>
-                            <li class="@if (Route::currentRouteName() == 'department.research')
-                                    active
-                                @endif">
-                                <a class="side-menu-item side-menu-item-text"
-                                    href="{{ route('department.research') }}">Research and Innovation</a>
-                            </li>
-                            <li class="@if (Route::currentRouteName() == 'department.hr')
-                                    active
-                                @endif">
-                                <a class="side-menu-item side-menu-item-text" href="{{ route('department.hr') }}">Human
-                                    Resource Department</a>
-                            </li>
-                            <li class="@if (Route::currentRouteName() == 'department.asset')
-                                    active
-                                @endif">
-                                <a class="side-menu-item side-menu-item-text"
-                                    href="{{ route('department.asset') }}">Procurement and Asset Management
-                                    Department</a>
-                            </li>
-                            <li class="@if (Route::currentRouteName() == 'department.aa')
-                                    active
-                                @endif">
-                                <a class="side-menu-item side-menu-item-text" href="{{ route('department.aa') }}">Office
-                                    of Academic Affairs
-                                    (Academic Affairs)</a>
-                            </li>
-                            <li class="@if (Route::currentRouteName() == 'department.qa')
-                                    active
-                                @endif">
-                                <a class="side-menu-item side-menu-item-text" href="{{ route('department.qa') }}">Office
-                                    of Academic Affairs
-                                    (Quality Assurance)</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Side Menu Bottom -->
-                    <div class="side-menu-bottom">
-                        <div class="side-menu-title">
-                            Admin
-                        </div>
-                        <ul class="side-menu-content">
-                            <li>
-                                <a class="side-menu-item side-menu-item-text" href="user.html">User</a>
-                            </li>
-                            <li>
-                                <a class="side-menu-item side-menu-item-text" href="group.html">Group</a>
-                            </li>
-                            <li>
-                                <a class="side-menu-item side-menu-item-text" href="access.html">Access Right</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> --}}
+
+            {{-- Side Menue --}}
 
             <x-sidemenu />
 
@@ -177,27 +91,10 @@
 
             </main>
 
-
-
-            {{-- <nav class="pagination-container" aria-label="pagination for table">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <span class="page-link">Previous</span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="{{ route('department.library') }}">1</a></li>
-                    <li class="page-item active" aria-current="page">
-                        <span class="page-link">2</span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="{{ route('department.library') }}">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="{{ route('department.library') }}">Next</a>
-                    </li>
-                </ul>
-            </nav> --}}
         </div>
     </div>
 
-    {{-- Scripts for DataTables --}}
+
 
 
 

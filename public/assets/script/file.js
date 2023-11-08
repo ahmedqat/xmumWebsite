@@ -70,7 +70,7 @@ submitButton.addEventListener('click', e => {
                 // Show loading indication
                 submitButton.setAttribute('data-kt-indicator', 'on');
 
-                // Disable button to avoid multiple click 
+                // Disable button to avoid multiple click
                 submitButton.disabled = true;
 
                 // Simulate form submission. For more info check the plugin's official documentation: https://sweetalert2.github.io/
@@ -81,7 +81,7 @@ submitButton.addEventListener('click', e => {
                     // Enable button
                     submitButton.disabled = false;
 
-                    // Show popup confirmation 
+                    // Show popup confirmation
                     Swal.fire({
                         html: "Your file has <b>successfully uploaded!</b>",
                         icon: "success",
@@ -132,7 +132,7 @@ CancelButton.addEventListener('click', e => {
         }
     }).then(function (result) {
         if (result.value) {
-            upload_form.reset(); // Reset form	
+            upload_form.reset(); // Reset form
             modal_upload_new.hide();
             $('.modal-backdrop').remove();
 
