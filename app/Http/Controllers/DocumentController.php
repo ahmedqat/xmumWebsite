@@ -26,7 +26,7 @@ class DocumentController extends Controller
 
 
 
-        $formFields = $request->validate([
+        $formFields = $request->validateWithBag('upload',[
 
             'title' => ['required',ValidationRule::unique('documents','title')],
             'department_id' => 'required',
@@ -55,7 +55,6 @@ class DocumentController extends Controller
 
 
 
-
         Document::create($formFields);
 
 
@@ -70,13 +69,11 @@ class DocumentController extends Controller
 
     public function update(Request $request, Document $document){
 
-        //dd($request->all());
+        $formFields = $request->validateWithBag('update',[
 
-        $formFields = $request->validate([
-
-            'title' => 'required',
-            'department_id' => 'required',
-            'description' => 'required',
+            'edit_title' => 'required',
+            'edit_department_id' => 'required',
+            'edit_description' => 'required',
 
         ]);
 
@@ -90,14 +87,28 @@ class DocumentController extends Controller
         }
 
 
-        $document->fill($formFields);
 
-        $document->save();
+        $columnMapping = [
+            'edit_title' => 'title',
+            'edit_department_id' => 'department_id',
+            'edit_description' => 'description',
+        ];
 
-        // $document->update($formFields);
+        $mappedFields = [];
+        foreach ($columnMapping as $formField => $dbColumn) {
+            $mappedFields[$dbColumn] = $formFields[$formField];
+        }
+
+
+
+
+
+        $document->update($mappedFields);
 
 
         return redirect()->back();
+
+
 
     }
 

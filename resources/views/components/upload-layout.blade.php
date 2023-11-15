@@ -39,7 +39,7 @@
                                     <label class="required upload-description-title">File Name</label>
                                     <input type="text" class="form-control" id="upload_name" name="title"
                                         value="{{ old('title') }}">
-                                    @error('title')
+                                    @error('title','upload')
 
                                     <p class="text-danger text-xs mt-1">{{ $message }}</p>
                                     @enderror
@@ -63,7 +63,7 @@
 
                                     </select>
 
-                                    @error('department_id')
+                                    @error('department_id','upload')
 
                                     <p class="text-danger text-xs mt-1">{{ $message }}</p>
                                     @enderror
@@ -74,7 +74,7 @@
                                     <label class="required upload-description-title">File Description</label>
                                     <textarea class="form-control" id="upload_description" rows="3"
                                         name="description">{{ old('description') }}</textarea>
-                                    @error('description')
+                                    @error('description','upload')
 
                                     <p class="text-danger text-xs mt-1">{{ $message }}</p>
                                     @enderror
@@ -86,7 +86,7 @@
                             <div class="upload-container fv-row">
                                 <input class="form-control " type="file" id="input_upload_file" name="path">
 
-                                @error('path')
+                                @error('path','upload')
                                 <p class="text-danger text-xs mt-1">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -113,7 +113,8 @@
 </div>
 
 
-@if (count($errors) > 0)
+@if ($errors->upload->isNotEmpty())
+
 <script>
     $( document ).ready(function() {
             $('#modal_upload').modal('show');

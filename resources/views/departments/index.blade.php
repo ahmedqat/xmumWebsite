@@ -1,7 +1,6 @@
 <x-layout>
     <x-upload-layout />
 
-
     {{-- Table goes here --}}
 
     <div class="content-body-table">
@@ -95,13 +94,11 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#modal_edit_{{ $document->id }}">
-                                            <img class="dropdown-list-btn-icon"
-                                                src="{{ asset('assets/icons/pencil.png') }}">
-                                            <span>Edit</span>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal-edit-{{ $document->id }}">
+                                        <img class="dropdown-list-btn-icon"
+                                            src="{{ asset('assets/icons/pencil.png') }}">
+                                        <span>Edit</span>
                                         </a>
-
 
                                     </li>
                                 </ul>
@@ -109,16 +106,14 @@
                         </div>
                     </td>
                 </tr>
-                <x-edit :document="$document" :modalId=" 'modal_edit_' . $document->id" />
+
+
+                <x-edit :document="$document" :modalId="'modal-edit-' .$document->id" />
                 <x-delete :document="$document" :modalId=" 'modal_delete_' .$document->id " />
+
                 @endforeach
             </tbody>
         </table>
-
-
-
-
-
 
         <script>
             $('#documentTable').DataTable({
@@ -128,6 +123,17 @@
 
 
 
+@if (count($errors->update) > 0)
+    <script>
+        $(document).ready(function() {
+            // Retrieve the modal ID from the hidden input field
+            var modalId = @json(old('modal_id'));
+
+            // Show the specific modal associated with the retrieved modal ID
+            $('#' + modalId).modal('show');
+        });
+    </script>
+@endif
 
 
 
