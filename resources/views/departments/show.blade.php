@@ -1,5 +1,5 @@
 <x-layout>
-    <x-upload-layout />
+    <x-docs.upload />
 
     {{-- Table goes here --}}
 
@@ -108,8 +108,8 @@
                 </tr>
 
 
-                <x-edit :document="$document" :modalId="'modal-edit-' .$document->id" />
-                <x-delete :document="$document" :modalId=" 'modal_delete_' .$document->id " />
+                <x-docs.edit :document="$document" :modalId="'modal-edit-' .$document->id" />
+                <x-docs.delete :document="$document" :modalId=" 'modal_delete_' .$document->id " />
 
                 @endforeach
             </tbody>

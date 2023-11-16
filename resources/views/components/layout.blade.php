@@ -33,9 +33,16 @@
     <link rel="stylesheet" href="{{ asset('assets/styles/plugins.bundle.css') }}" type="text/css" />
 </head>
 
+
+
 <body>
+
+
+
+
+
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-white">
+    <nav class="navbar navbar-expand-lg navbar-white">
         <div class="container-fluid">
             <!-- Main Icon -->
             <div class="navbar-brand-div">
@@ -68,16 +75,21 @@
     </nav>
 
 
+
+
+
     <!-- Body Content -->
     <div class="container-fluid container-fluid-wrap">
+
+
+
         <div class="content-container">
 
             {{-- Side Menue --}}
-
             <x-sidemenu />
 
-
             {{-- Main Content --}}
+
 
             <main>
 
@@ -85,8 +97,17 @@
 
             </main>
 
+
+
+
+
         </div>
     </div>
+
+
+
+
+
 
 
 

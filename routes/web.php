@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use App\Models\Department;
 use Illuminate\Support\Facades\Route;
 
@@ -23,34 +25,46 @@ Route::get('/', function () {
 
 
 
+//Show Users Table
+Route::get('/users', [UserController::class,'index'])->name('users.index');
+
+
+
+
+
+
+
+
+
+
+
+
+//Show Roles Table
+
+Route::get('/roles',[RoleController::class,'index'])->name('roles.index');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 //SideMenu Routes
 
-
 //Department Views
 
-// Route::get('/department/library',[DepartmentController::class,'library'])->name('department.library');
-
-// Route::get('/department/IT',[DepartmentController::class,'it'])->name('department.it');
-
-// Route::get('/department/admin',[DepartmentController::class,'admin'])->name('department.admin');
-
-// Route::get('/department/finance',[DepartmentController::class,'finance'])->name('department.finance');
-
-// Route::get('/department/research',[DepartmentController::class,'research'])->name('department.research');
-
-// Route::get('/department/HR',[DepartmentController::class,'hr'])->name('department.hr');
-
-// Route::get('/department/asset',[DepartmentController::class,'asset'])->name('department.asset');
-
-// Route::get('/department/academic_affairs',[DepartmentController::class,'academic_affairs'])->name('department.aa');
-
-// Route::get('/department/quality_assurance',[DepartmentController::class,'quality_assurance'])->name('department.qa');
-
 Route::get('/departments/{department}',[DepartmentController::class,'deb'])->name('departments.department');
-
 
 
 //Show Documents in Department

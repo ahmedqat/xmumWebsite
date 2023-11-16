@@ -1,3 +1,3 @@
 <x-layout>
-    <x-upload-layout />
+    <x-docs.upload />
 </x-layout>

@@ -5,7 +5,7 @@
 
 {{-- @props(['departments']) --}}
 
-<div class="side-menu-container">
+<div class="container-fluid side-menu-container overflow-auto">
     <div class="side-menu">
         <!-- Side Menu Top -->
         <div class="side-menu-top">
@@ -101,11 +101,11 @@
                 Admin
             </div>
             <ul class="side-menu-content">
-                <li>
-                    <a class="side-menu-item side-menu-item-text" href="user.html">User</a>
+                <li class="{{ (request() -> is('users')) ? 'active' : '' }}">
+                    <a class="side-menu-item side-menu-item-text" href="{{ route('users.index') }}">User</a>
                 </li>
-                <li>
-                    <a class="side-menu-item side-menu-item-text" href="group.html">Group</a>
+                <li class='{{ (request()->is('roles')) ? 'active' : '' }}'>
+                    <a class="side-menu-item side-menu-item-text" href="{{ route('roles.index') }}">Role</a>
                 </li>
                 <li>
                     <a class="side-menu-item side-menu-item-text" href="access.html">Access Right</a>

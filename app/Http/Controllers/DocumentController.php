@@ -16,7 +16,7 @@ class DocumentController extends Controller
     public function show(Department $department){
         $documents = $department->documents()->paginate(10);
 
-        return view('departments.index',compact('documents','department'));
+        return view('departments.show',compact('documents','department'));
     }
 
 

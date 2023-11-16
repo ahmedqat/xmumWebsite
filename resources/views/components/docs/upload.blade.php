@@ -1,13 +1,9 @@
 {{-- @vite(['resources/js/file.js']) --}}
 
 <div class="content-body">
-    <div class="content-body-search">
-        <!-- Search File -->
-        <div class="content-search">
-            <img class="btn-icon" src="{{ asset('assets/icons/search.png') }}">
-        </div>
+
         <!-- Upload Button -->
-        <div class="content-upload">
+        <div class="content-upload position-absolute end-0 mt-2">
             <div class="upload-btn-container">
                 <a href="" class="btn btn-upload" data-bs-toggle="modal" data-bs-target="#modal_upload">
                     <img class="btn-icon" src="{{ asset('assets/icons/add.png') }}">
@@ -15,7 +11,7 @@
                 </a>
             </div>
         </div>
-    </div>
+
 
     {{-- Modal Start --}}
 

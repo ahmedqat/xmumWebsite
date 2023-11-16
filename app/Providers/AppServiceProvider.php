@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Department;
+use App\Models\Role;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -22,5 +23,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         view()->share('departments',Department::all());
+        view()->share('roles',Role::all());
     }
 }
