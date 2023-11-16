@@ -28,6 +28,10 @@ Route::get('/', function () {
 //Show Users Table
 Route::get('/users', [UserController::class,'index'])->name('users.index');
 
+//Add user
+
+Route::post('/users',[UserController::class,'upload'])->name('users.upload');
+
 
 
 

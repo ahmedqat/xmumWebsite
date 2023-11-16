@@ -5,7 +5,9 @@
         <!-- Upload Button -->
         <div class="content-upload position-absolute end-0 mt-2">
             <div class="upload-btn-container">
-                <a href="" class="btn btn-upload" data-bs-toggle="modal" data-bs-target="#modal_upload">
+                <a href="" class="btn btn-upload" data-bs-toggle="modal" data-bs-target="#modal_upload"
+                {{-- onclick="clearModalData()" --}}
+                >
                     <img class="btn-icon" src="{{ asset('assets/icons/add.png') }}">
                     Upload
                 </a>
@@ -40,6 +42,8 @@
                                     <p class="text-danger text-xs mt-1">{{ $message }}</p>
                                     @enderror
                                 </div>
+
+
 
                                 {{-- Department --}}
                                 <div class="row mb-4 mx-0 fv-row">
@@ -89,7 +93,7 @@
                         </div>
 
                         <div class="text-center mt-4 modal-action">
-                            <button type="reset" class="btn btn-discard me-3" data-bs-dismiss="modal">Discard</button>
+                            <button type="reset" class="btn btn-discard me-3" data-bs-dismiss="modal" id="reset">Discard</button>
 
 
                             {{-- <button type="submit" class="btn btn-primary" data-users-modal-action="submit">
@@ -114,6 +118,38 @@
 <script>
     $( document ).ready(function() {
             $('#modal_upload').modal('show');
+
         });
+
+
+
 </script>
 @endif
+
+
+{{-- <script>
+    function clearModalData() {
+        // Clear the form fields manually
+        document.getElementById('upload_name').value = '';
+        document.getElementById('upload_department').value = '';
+        document.getElementById('upload_description').value = '';
+        document.getElementById('input_upload_file').value = '';
+
+        // Clear any validation error messages
+        var errorMessages = document.querySelectorAll('.text-danger');
+        errorMessages.forEach(function (element) {
+            element.innerHTML = '';
+        });
+    }
+</script> --}}
+
+
+
+
+
+
+
+
+
+
+

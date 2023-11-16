@@ -1,4 +1,6 @@
 <x-layout>
+
+    <x-users.add/>
     <div class="content-body-table">
         <div class="body-table-title">
             User List

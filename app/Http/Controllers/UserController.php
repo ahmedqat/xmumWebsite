@@ -17,4 +17,27 @@ class UserController extends Controller
 
         return view('users.show',compact('users'));
     }
+
+
+    public function upload(Request $request){
+
+
+       // dd($request->all());
+
+        $formFields = $request->validateWithBag('user_upload',[
+
+            'id' => 'required',
+            'name' => 'required',
+            'email' => ['required','email'],
+            'role_id' => 'required',
+
+
+
+        ]);
+
+        User::create($formFields);
+
+        return  redirect()->back();
+
+    }
 }
