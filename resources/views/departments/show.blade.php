@@ -111,6 +111,7 @@
                 <x-docs.edit :document="$document" :modalId="'modal-edit-' .$document->id" />
                 <x-docs.delete :document="$document" :modalId=" 'modal_delete_' .$document->id " />
 
+
                 @endforeach
             </tbody>
         </table>

@@ -48,6 +48,11 @@ Route::post('/users',[UserController::class,'upload'])->name('users.upload');
 Route::get('/roles',[RoleController::class,'index'])->name('roles.index');
 
 
+//Add A Role
+
+Route::post('/roles',[RoleController::class,'upload'])->name('roles.upload');
+
+
 
 
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EditDocumentRequest;
+use App\Http\Requests\UploadDocumentRequest;
 use App\Models\Department;
 use App\Models\Document;
 use Illuminate\Validation\Rule as ValidationRule;
@@ -22,18 +24,21 @@ class DocumentController extends Controller
 
     //Upload a new Document
 
-    public function upload(Department $department, Request $request){
+    public function upload(Department $department, UploadDocumentRequest $request){
 
 
 
-        $formFields = $request->validateWithBag('upload',[
+        // $formFields = $request->validateWithBag('upload',[
 
-            'title' => ['required',ValidationRule::unique('documents','title')],
-            'department_id' => 'required',
-            'description' => 'required',
-            'path' => ['required',ValidationRule::unique('documents','path')],
+        //     'title' => ['required',ValidationRule::unique('documents','title')],
+        //     'department_id' => 'required',
+        //     'description' => 'required',
+        //     'path' => ['required',ValidationRule::unique('documents','path')],
 
-        ]);
+        // ]);
+
+
+        $formFields = $request->validated();
 
 
 
@@ -67,15 +72,20 @@ class DocumentController extends Controller
 
     //Update document info
 
-    public function update(Request $request, Document $document){
+    public function update(EditDocumentRequest $request, Document $document){
 
-        $formFields = $request->validateWithBag('update',[
+        // $formFields = $request->validateWithBag('update',[
 
-            'edit_title' => 'required',
-            'edit_department_id' => 'required',
-            'edit_description' => 'required',
+        //     'edit_title' => 'required',
+        //     'edit_department_id' => 'required',
+        //     'edit_description' => 'required',
 
-        ]);
+        // ]);
+
+        $formFields = $request->validated();
+
+
+
 
 
         if ($request->hasFile('path')) {

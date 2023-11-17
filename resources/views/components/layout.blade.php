@@ -14,16 +14,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-    {{--
-    <link rel="stylesheet" href="{{ asset('assets/dist/boostrap/css/bootstrap.min.css') }}"> --}}
-
     <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.css" rel="stylesheet">
-
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.js"></script>
-    --}}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.js"></script>
+
+
+
+
+
+
+
+
+
 
     {{-- @vite(['resources/js/file.js'])
     @vite(['resources/js/plugins.bundle.js'])
@@ -120,6 +124,17 @@
 
     <!-- <script src="assets/dist/popper/popper.min.js"></script> -->
     <!-- <script src="assets/dist/jquery/jquery.slim.min.js"></script> -->
+
+
+
+    {{-- JAVASCRIPT VALIDATION PLUGIN --}}
+    <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
+
+    {!! JsValidator::formRequest('App\Http\Requests\UploadDocumentRequest','#modal_upload_form')!!}
+    {!! JsValidator::formRequest('App\Http\Requests\AddUserRequest','#modal_user_form')!!}
+    {{-- {!! JsValidator::formRequest('App\Http\Requests\EditDocumentRequest','#modal_edit_form')!!} --}}
+    {!! JsValidator::formRequest('App\Http\Requests\AddRoleRequest','#modal_roles_form')!!}
+
 </body>
 
 </html>

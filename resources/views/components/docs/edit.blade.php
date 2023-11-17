@@ -1,5 +1,7 @@
 @props(['document','modalId' => null])
 
+
+
 {{-- Edit Modal --}}
 
 <div class="modal fade" id="{{ $modalId }}" tabindex="-1" aria-hidden="true">
@@ -117,6 +119,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 

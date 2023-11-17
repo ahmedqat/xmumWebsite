@@ -1,5 +1,7 @@
 {{-- @vite(['resources/js/file.js']) --}}
 
+
+
 <div class="content-body">
 
         <!-- Upload Button -->
@@ -113,7 +115,9 @@
 </div>
 
 
-@if ($errors->upload->isNotEmpty())
+
+
+{{-- @if ($errors->upload->isNotEmpty())
 
 <script>
     $( document ).ready(function() {
@@ -124,7 +128,7 @@
 
 
 </script>
-@endif
+@endif --}}
 
 
 {{-- <script>

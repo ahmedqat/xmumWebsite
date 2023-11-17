@@ -1,5 +1,6 @@
 <x-layout>
 
+    <x-roles.add/>
 
 
     <div class="content-body-table">

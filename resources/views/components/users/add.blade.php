@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="text-center mt-4 modal-action">
-                            <button type="reset" class="btn btn-discard me-3"
+                            <button type="reset" class="btn btn-discard me-3" data-bs-dismiss="modal"
                                 data-users-modal-action="cancel">Discard</button>
                             <button type="submit" class="btn btn-submit">
                                 <span class="indicator-label">Add User</span>
