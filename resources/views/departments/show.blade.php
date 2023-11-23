@@ -94,10 +94,11 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal-edit-{{ $document->id }}">
-                                        <img class="dropdown-list-btn-icon"
-                                            src="{{ asset('assets/icons/pencil.png') }}">
-                                        <span>Edit</span>
+                                        <a href="#" data-bs-toggle="modal"
+                                            data-bs-target="#modal-edit-{{ $document->id }}">
+                                            <img class="dropdown-list-btn-icon"
+                                                src="{{ asset('assets/icons/pencil.png') }}">
+                                            <span>Edit</span>
                                         </a>
 
                                     </li>
@@ -117,24 +118,34 @@
         </table>
 
         <script>
+            var numColumns = $('#documentTable').find('thead th').length;
+
+            var columnDefinitions = Array(numColumns).fill({ "orderable": false });
+
+
             $('#documentTable').DataTable({
-            "pageLength":10
+
+            "pageLength":10,
+            "columns": columnDefinitions,
+
+
+
         });
         </script>
 
 
 
-@if (count($errors->update) > 0)
-    <script>
-        $(document).ready(function() {
+        @if (count($errors->update) > 0)
+        <script>
+            $(document).ready(function() {
             // Retrieve the modal ID from the hidden input field
             var modalId = @json(old('modal_id'));
 
             // Show the specific modal associated with the retrieved modal ID
             $('#' + modalId).modal('show');
         });
-    </script>
-@endif
+        </script>
+        @endif
 
 
 
