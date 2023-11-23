@@ -15,16 +15,18 @@ class DocumentController extends Controller
 
     //shows the documents and takes two variable the current department and its documents.
 
-    public function show(Department $department){
+    public function show(Department $department)
+    {
         $documents = $department->documents()->paginate(10);
 
-        return view('departments.show',compact('documents','department'));
+        return view('departments.show', compact('documents', 'department'));
     }
 
 
     //Upload a new Document
 
-    public function upload(Department $department, UploadDocumentRequest $request){
+    public function upload(Department $department, UploadDocumentRequest $request)
+    {
 
 
 
@@ -51,7 +53,7 @@ class DocumentController extends Controller
 
         $newFileName = uniqid() . '.' . $file->getClientOriginalExtension();
 
-        $formFields['path'] = $file->storeAs('docs', $newFileName,'public');
+        $formFields['path'] = $file->storeAs('docs', $newFileName, 'public');
 
         $formFields['file_name'] = $originalFileName;
 
@@ -65,24 +67,24 @@ class DocumentController extends Controller
 
 
         return redirect()->back();
-
     }
 
 
 
     //Update document info
 
-    public function update(EditDocumentRequest $request, Document $document){
+    public function update(Request $request, Document $document)
+    {
 
-        // $formFields = $request->validateWithBag('update',[
+        $formFields = $request->validateWithBag('update', [
 
-        //     'edit_title' => 'required',
-        //     'edit_department_id' => 'required',
-        //     'edit_description' => 'required',
+            'edit_title' => 'required',
+            'edit_department_id' => 'required',
+            'edit_description' => 'required',
 
-        // ]);
+        ]);
 
-        $formFields = $request->validated();
+        //$formFields = $request->validated();
 
 
 
@@ -117,25 +119,18 @@ class DocumentController extends Controller
 
 
         return redirect()->back();
-
-
-
     }
 
 
 
     //Delete Document
 
-    public function delete(Document $document){
+    public function delete(Document $document)
+    {
 
 
         $document->delete();
 
         return redirect()->back();
-
-
     }
-
-
-
 }

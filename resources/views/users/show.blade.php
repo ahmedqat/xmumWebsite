@@ -33,16 +33,16 @@
                                 <img class="btn-icon-more" src="assets/icons/more.png">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <ul class="content-dropdown-list">
+                                <ul class="content-dropdown-list list-unstyled">
                                     <li>
-                                        <a href="#">
-                                            <img class="dropdown-list-btn-icon" src="assets/icons/delete.png">
+                                        <a href="#" class="btn btn-danger text-light">
+                                            <img class="dropdown-list-btn-icon" src="{{ asset('assets/icons/delete.png') }}">
                                             <span>Delete</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img class="dropdown-list-btn-icon" src="assets/icons/pencil.png">
+                                            <img class="dropdown-list-btn-icon" src="{{ asset('assets/icons/pencil.png') }}">
                                             <span>Edit</span>
                                         </a>
                                     </li>
