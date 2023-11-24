@@ -84,7 +84,8 @@
 
                 <li class="{{ (request()->is('departments/' . $department->id . '*')) ? 'active' : ''}}">
 
-                    <a class="side-menu-item side-menu-item-text" href="{{ route('documents.show' , ['department' => $department]) }}">{{
+                    <a class="side-menu-item side-menu-item-text"
+                        href="{{ route('documents.show' , ['department' => $department]) }}">{{
                         $department->name }}</a>
                 </li>
 
@@ -101,12 +102,16 @@
                 Admin
             </div>
             <ul class="side-menu-content">
+
+                <li class="{{ (request()->is('roles')) ? 'active' : '' }}">
+                    <a class="side-menu-item side-menu-item-text" href="{{ route('roles.index') }}">Role</a>
+                </li>
+
+
                 <li class="{{ (request() -> is('users')) ? 'active' : '' }}">
                     <a class="side-menu-item side-menu-item-text" href="{{ route('users.index') }}">User</a>
                 </li>
-                <li class='{{ (request()->is('roles')) ? 'active' : '' }}'>
-                    <a class="side-menu-item side-menu-item-text" href="{{ route('roles.index') }}">Role</a>
-                </li>
+
                 <li>
                     <a class="side-menu-item side-menu-item-text" href="access.html">Access Right</a>
                 </li>

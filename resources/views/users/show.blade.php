@@ -35,13 +35,14 @@
                             <div class="dropdown-menu dropdown-menu-end">
                                 <ul class="content-dropdown-list list-unstyled">
                                     <li>
-                                        <a href="#" class="btn btn-danger text-light">
+                                        <a href="#" class="btn btn-danger text-light" data-bs-toggle="modal"
+                                        data-bs-target="#modal_delete_{{ $user->id }}">
                                             <img class="dropdown-list-btn-icon" src="{{ asset('assets/icons/delete.png') }}">
                                             <span>Delete</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal-edit-{{ $user->id }}" >
                                             <img class="dropdown-list-btn-icon" src="{{ asset('assets/icons/pencil.png') }}">
                                             <span>Edit</span>
                                         </a>
@@ -52,6 +53,9 @@
                     </td>
                 </tr>
 
+                <x-users.edit :user="$user" :modalId="'modal-edit-'. $user->id"/>
+                <x-users.delete :user="$user" :modalId="'modal_delete_' . $user->id"/>
+
 
                 @endforeach
 
@@ -59,4 +63,17 @@
             </tbody>
         </table>
     </div>
+
+    @if (count($errors->user_update) > 0)
+        <script>
+            $(document).ready(function() {
+            // Retrieve the modal ID from the hidden input field
+            var modalId = @json(old('modal_id'));
+
+            // Show the specific modal associated with the retrieved modal ID
+            $('#' + modalId).modal('show');
+        });
+        </script>
+        @endif
+
 </x-layout>

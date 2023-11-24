@@ -1,6 +1,6 @@
 <x-layout>
 
-    <x-roles.add/>
+    <x-roles.add />
 
 
     <div class="content-body-table">
@@ -35,14 +35,17 @@
                             <div class="dropdown-menu dropdown-menu-end">
                                 <ul class="content-dropdown-list list-unstyled">
                                     <li>
-                                        <a href="#" class="btn btn-danger text-light">
-                                            <img class="dropdown-list-btn-icon" src="{{ asset('assets/icons/delete.png') }}">
+                                        <a href="#" class="btn btn-danger text-light" data-bs-toggle="modal"
+                                        data-bs-target="#modal_delete_{{ $role->id }}">
+                                            <img class="dropdown-list-btn-icon"
+                                                src="{{ asset('assets/icons/delete.png') }}">
                                             <span>Delete</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            <img class="dropdown-list-btn-icon" src="{{ asset('assets/icons/pencil.png') }}">
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal-edit-{{ $role->id }}">
+                                            <img class="dropdown-list-btn-icon"
+                                                src="{{ asset('assets/icons/pencil.png') }}">
                                             <span>Edit</span>
                                         </a>
                                     </li>
@@ -53,12 +56,30 @@
                 </tr>
 
 
+                <x-roles.edit :role="$role" :modalId="'modal-edit-' . $role->id" />
+                <x-roles.delete :role="$role" :modalId="'modal_delete_' . $role->id"/>
+
+
                 @endforeach
 
 
             </tbody>
         </table>
     </div>
+
+
+
+    @if (count($errors->role_update) > 0)
+        <script>
+            $(document).ready(function() {
+            // Retrieve the modal ID from the hidden input field
+            var modalId = @json(old('modal_id'));
+
+            // Show the specific modal associated with the retrieved modal ID
+            $('#' + modalId).modal('show');
+        });
+        </script>
+        @endif
 
 
 </x-layout>
