@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Models\Department;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,26 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+//User Authentication:
+
+
+//show login page
+
+Route::get('/login',[AuthenticationController::class,'show'])->name('login.show');
+
+//Auth User
+
+Route::post('/login/auth',[AuthenticationController::class,'authenticate'])->name('login.auth');
+
+
+//Logout User
+
+Route::post('/logout',[AuthenticationController::class,'logout'])->name('logout');
+
+
+
 
 Route::get('/', function () {
     return view('index',['departments' => Department::all()]);

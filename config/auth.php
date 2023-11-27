@@ -59,17 +59,41 @@ return [
     |
     */
 
-    'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
+    // 'providers' => [
+    //     'ldap' => [
+    //         'driver' => 'ldap',
+    //         'model' => LdapRecord\Models\ActiveDirectory\User::class,
+    //     ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+    //     // 'users' => [
+    //     //     'driver' => 'database',
+    //     //     'table' => 'users',
+    //     // ],
+    // ],
+
+    'providers' => [
+        // ...
+
+        'users' => [
+            'driver' => 'ldap',
+            'model' => LdapRecord\Models\OpenLDAP\User::class,
+            'rules' => [],
+            'scopes' => [],
+        ],
     ],
+
+
+    // 'providers' => [
+    //     'users' => [
+    //         'driver' => 'eloquent',
+    //         'model' => App\Models\User::class,
+    //     ],
+
+    //     // 'users' => [
+    //     //     'driver' => 'database',
+    //     //     'table' => 'users',
+    //     // ],
+    // ],
 
     /*
     |--------------------------------------------------------------------------

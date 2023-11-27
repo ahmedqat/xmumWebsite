@@ -45,7 +45,7 @@
 
 
 
-    <!-- Navigation Bar -->
+    {{-- <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-white">
         <div class="container-fluid">
             <!-- Main Icon -->
@@ -76,7 +76,55 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </nav> --}}
+
+    <!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-white">
+    <div class="container-fluid">
+        <!-- Main Icon -->
+        <div class="navbar-brand-div">
+            <a class="navbar-brand" href="/">
+                <img src="{{ asset('assets/icons/linc-logo.png') }}" class="xmu-icon">
+            </a>
+        </div>
+        <!-- Profile Icon -->
+        <div class="navbar-nav">
+            <div class="d-inline-block dropdown">
+                <a href="/" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
+                    <img class="navbar-login-icon" src="{{ asset('assets/icons/avatar.png') }}" alt="Login">
+                </a>
+                <ul class="login-menu-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    @auth
+                        <li>
+                            <a class="dropdown-item disabled user-id" href="/" disable>{{ session('user.name') }}</a>
+                        </li>
+                        <li>
+                            <div class="btn-logout-container">
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-logout">
+                                        <img class="btn-icon" src="{{ asset('assets/icons/logout.png') }}">Logout
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+                    @else
+                        <li>
+
+
+                            <div class="btn-login-container">
+
+                                <a href="{{ route('login.show') }}" class="dropdown-item btn btn-primary">Login</a>
+
+                            </div>
+                        </li>
+                    @endauth
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
 
 
 
