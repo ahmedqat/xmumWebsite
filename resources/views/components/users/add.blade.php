@@ -22,10 +22,7 @@
                         @csrf
                         <div class="d-flex flex-column scroll-y me-n7 pe-7 mb-3">
                             <div class="upload-information-container d-flex flex-column">
-                                <div class="row mb-4 mx-0 fv-row">
-                                    <label class="required upload-description-title">User ID</label>
-                                    <input type="text" class="form-control" id="user_id" name="id"></textarea>
-                                </div>
+
                                 <div class="row mb-4 mx-0 fv-row">
                                     <label class="required upload-description-title">User Name</label>
                                     <input type="text" class="form-control" id="user_name" name="name"></textarea>
