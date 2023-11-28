@@ -3,6 +3,8 @@
 
 
 <div class="content-body">
+@auth
+
 
         <!-- Upload Button -->
         <div class="content-upload position-absolute end-0 mt-2">
@@ -15,7 +17,7 @@
                 </a>
             </div>
         </div>
-
+@endauth
 
     {{-- Modal Start --}}
 

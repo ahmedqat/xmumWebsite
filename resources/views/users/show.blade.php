@@ -12,9 +12,14 @@
                     <th>User Name</th>
                     <th>Email Address</th>
                     <th>Role</th>
+                    @auth
+
+
                     <th class="text-center column-width-5">
                         <img class="btn-icon-more" src="assets/icons/more.png">
                     </th>
+
+                    @endauth
                 </tr>
             </thead>
             <tbody id="myTable">
@@ -26,6 +31,9 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->role->name }}</td>
+                    @auth
+
+
                     <td>
                         <div class="dropdown text-center">
                             <a href class="dropdown-toggle btn btn-more" data-bs-toggle="dropdown"
@@ -51,6 +59,7 @@
                             </div>
                         </div>
                     </td>
+                    @endauth
                 </tr>
 
                 <x-users.edit :user="$user" :modalId="'modal-edit-'. $user->id"/>

@@ -112,9 +112,9 @@
                     <a class="side-menu-item side-menu-item-text" href="{{ route('users.index') }}">User</a>
                 </li>
 
-                <li>
+                {{-- <li>
                     <a class="side-menu-item side-menu-item-text" href="access.html">Access Right</a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

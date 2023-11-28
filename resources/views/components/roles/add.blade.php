@@ -1,4 +1,6 @@
 <div class="content-body">
+@auth
+
 
     <!-- Upload Button -->
     <div class="content-upload position-absolute end-0 mt-2">
@@ -9,7 +11,7 @@
             </a>
         </div>
     </div>
-
+@endauth
     <div class="modal fade" id="modal_roles" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-width">
             <div class="modal-content">

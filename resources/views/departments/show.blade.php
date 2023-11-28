@@ -14,9 +14,13 @@
                     <th>Description</th>
                     <th>Department</th>
                     <th>File</th>
+                    @auth
+
+
                     <th class="text-center column-width-5">
                         <img class="btn-icon-more" src="{{ asset('assets/icons/more.png') }}">
                     </th>
+                    @endauth
                 </tr>
             </thead>
             <tbody>
@@ -36,6 +40,9 @@
                     <td>
                         <p>No Documents Uploaded</p>
                     </td>
+                    @auth
+
+
                     <td>
                         <div class="dropdown-menu dropdown-menu-end">
                             <ul class="content-dropdown-list list-unstyled">
@@ -57,6 +64,7 @@
                             </ul>
                         </div>
                     </td>
+                    @endauth
                 </tr>
 
 
@@ -76,6 +84,8 @@
 
 
                     </td>
+                    @auth
+
 
                     <td>
                         <div class="dropdown text-center">
@@ -106,6 +116,7 @@
                             </div>
                         </div>
                     </td>
+                    @endauth
                 </tr>
 
 

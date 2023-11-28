@@ -13,9 +13,11 @@
                     <th class="column-width-20">Role ID</th>
                     <th>Role Name</th>
                     <th>Decription</th>
+                    @auth
                     <th class="text-center column-width-5">
                         <img class="btn-icon-more" src="assets/icons/more.png">
                     </th>
+                    @endauth
                 </tr>
             </thead>
             <tbody id="myTable">
@@ -26,6 +28,9 @@
                     <td>{{ $role->id }}</td>
                     <td>{{ $role->name }}</td>
                     <td>{{ $role->role_description }}</td>
+                    @auth
+
+
                     <td>
                         <div class="dropdown text-center">
                             <a href class="dropdown-toggle btn btn-more" data-bs-toggle="dropdown"
@@ -53,6 +58,7 @@
                             </div>
                         </div>
                     </td>
+                    @endauth
                 </tr>
 
 
